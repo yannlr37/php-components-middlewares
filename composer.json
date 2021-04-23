@@ -1,0 +1,14 @@
+{
+    "name": "php-components/middlewares",
+    "authors": [
+        {
+            "name": "Yann La Rosa",
+            "email": "yannlarosa@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PhpComponents\\Middlewares\\": "src/"
+        }
+    }
+}
