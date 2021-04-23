@@ -1,25 +1,16 @@
 <?php
 
 use PhpComponents\Middlewares\Request;
-use PhpComponents\Middlewares\Response;
-use PhpComponents\Middlewaress\Dispatcher;
-use PhpComponents\Middlewares\TestMiddleware;
-use PhpComponents\Middlewares\HelloMiddleware;
-use PhpComponents\Middlewares\ZboubMiddleware;
+use PhpComponents\Middlewares\Dispatcher;
+use PhpComponents\Middlewares\ExampleMiddleware;
 
 require_once 'vendor/autoload.php';
 
-$body = [
-    'firstname' => 'Yann',
-    'lastname' => 'LA ROSA'
-];
-
-$request = new Request;
-$request->withBody($body);
+$request = Request::createFromGlobals();
+var_dump($request);
 
 $dispatcher = new Dispatcher();
-$dispatcher->pipe(new TestMiddleware());
-$dispatcher->pipe(new HelloMiddleware());
-$dispatcher->pipe(new ZboubMiddleware());
+$dispatcher->pipe(new ExampleMiddleware());
 $response = $dispatcher->dispatch($request);
 
+var_dump($response);

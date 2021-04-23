@@ -2,12 +2,12 @@
 
 namespace PhpComponents\Middlewares;
 
-class HelloMiddleware extends BaseMiddleware {
+class ExampleMiddleware extends BaseMiddleware {
 
     public function handle(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $body = $response->getBody();
-        $body['hello'] = 'Hello You';
+        $body['test'] = 'add by TestMiddleware';
         $response->setBody($body);
         return $response;
     }

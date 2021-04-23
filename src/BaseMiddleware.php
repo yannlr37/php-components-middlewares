@@ -9,7 +9,6 @@ class BaseMiddleware implements MiddlewareInterface {
         $response = $delegate->dispatch($request);
         if (is_null($response)) {
             $response = new Response();
-            $response->setBody($request->getBody());
         }
         $response = $this->handle($request, $response);
         return $response;
